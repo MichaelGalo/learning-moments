@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { AllPostsList } from "../components/AllPosts/AllPostsList";
+import { NavBar } from "../components/NavBar/NavBar";
+import { PostDetails } from "../components/PostDetails/PostDetails";
 
 export const ApplicationViews = () => {
   // manage the current user
@@ -13,8 +15,22 @@ export const ApplicationViews = () => {
 
   return (
     <Routes>
-      <Route>
-        <Route index path="/" element={<AllPostsList />} />
+      <Route
+        path="/"
+        element={
+          <>
+            <NavBar />
+            <Outlet />
+          </>
+        }
+      >
+        {/* <Route index element={<div>Home Page Content</div>} /> */}
+        <Route index path="/all-posts" element={<AllPostsList />} />
+        <Route
+          path="/post-details/:postId"
+          element={<PostDetails />}
+          currentUser={currentUser}
+        />
       </Route>
     </Routes>
   );
