@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
 import { getPostById } from "../../services/getPosts";
-import { LikeButton } from "../LikeButton/LikeButton";
+import { LikeButton } from "../Buttons/LikeButton";
+import { EditButton } from "../Buttons/EditButton";
 
 export const PostDetails = ({ currentUser }) => {
   let { postId } = useParams();
@@ -15,9 +16,7 @@ export const PostDetails = ({ currentUser }) => {
       setCurrentPost(post);
     };
     fetchPost();
-  }, [postId]);
-
-  //   TODO: add a like button to non-authors -- likely another component for that conditional -- also will need to pass down user to this module by drilling
+  }, [postId, currentPost]);
 
   return (
     <div className="post-details">
@@ -38,7 +37,22 @@ export const PostDetails = ({ currentUser }) => {
         </span>
       </div>
       <p className="post-content">{currentPost.body}</p>
-      <LikeButton />
+      {currentUser.id !== currentPost.userId ? (
+        <div className="like-btn">
+          <LikeButton currentPost={currentPost} />
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="edit-btn">
+        {currentUser.id === currentPost.userId ? (
+          <div className="like-btn">
+            <EditButton />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

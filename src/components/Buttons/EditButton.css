@@ -1,0 +1,14 @@
+.edit-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding around text */
+  font-size: 16px; /* Text size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.2s; /* Smooth background color change on hover */
+}
+
+.edit-button:hover {
+  background-color: #45a049; /* Darker shade of green on hover */
+}

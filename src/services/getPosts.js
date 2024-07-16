@@ -10,3 +10,14 @@ export const getPostById = async (id) => {
     `http://localhost:8088/posts/${id}?_expand=user&_expand=topic`
   ).then((res) => res.json());
 };
+
+// need a PUT service to update the likes on the post
+export const updatePost = async (post) => {
+  return await fetch(`http://localhost:8088/posts/${post.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(post),
+  }).then((res) => res.json());
+};
