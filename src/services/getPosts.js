@@ -21,3 +21,14 @@ export const updatePost = async (post) => {
     body: JSON.stringify(post),
   }).then((res) => res.json());
 };
+
+// need a POST service to add a new post
+export const addPost = async (post) => {
+  return await fetch(`http://localhost:8088/posts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(post),
+  }).then((res) => res.json());
+};

@@ -3,6 +3,7 @@ import { Outlet, Route, Routes } from "react-router-dom";
 import { AllPostsList } from "../components/AllPosts/AllPostsList";
 import { NavBar } from "../components/NavBar/NavBar";
 import { PostDetails } from "../components/PostDetails/PostDetails";
+import { NewPost } from "../components/NewPost/NewPost";
 
 export const ApplicationViews = () => {
   // manage the current user
@@ -29,6 +30,10 @@ export const ApplicationViews = () => {
         <Route
           path="/post-details/:postId"
           element={<PostDetails currentUser={currentUser} />}
+        />
+        <Route
+          path="/new-post"
+          element={<NewPost currentUser={currentUser} />}
         />
       </Route>
     </Routes>

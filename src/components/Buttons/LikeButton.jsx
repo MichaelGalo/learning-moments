@@ -12,6 +12,8 @@ export const LikeButton = ({ currentPost }) => {
   const toggleLike = () => {
     currentPost.likes++;
     updatePost(currentPost);
+
+    // TODO: Later this needs to navigate to the favorites page
   };
 
   return (

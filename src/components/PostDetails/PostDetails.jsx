@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
       <div className="edit-btn">
         {currentUser.id === currentPost.userId ? (
           <div className="like-btn">
-            <EditButton />
+            <EditButton currentPost={currentPost} />
           </div>
         ) : (
           ""
