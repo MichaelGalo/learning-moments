@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { getAllTopics } from "../../services/getTopics";
 import "./NewPost.css";
 import { addPost } from "../../services/getPosts";
+import { useNavigate } from "react-router-dom";
 
 export const NewPost = ({ currentUser }) => {
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTopics = async () => {
@@ -37,7 +39,8 @@ export const NewPost = ({ currentUser }) => {
     setBody("");
     setSelectedTopic("");
 
-    // TODO: redirect to the my-posts page -- for later
+    // redirect to the my-posts page -- for later
+    navigate("/my-posts");
   };
 
   return (

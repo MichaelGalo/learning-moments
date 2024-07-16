@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./MyPosts.css";
 import { getPostByUserId } from "../../services/getPosts";
+import { DeleteButton } from "../Buttons/DeleteButton";
 
 export const MyPosts = ({ currentUser }) => {
   const [myPosts, setMyPosts] = useState([]);
@@ -12,7 +13,7 @@ export const MyPosts = ({ currentUser }) => {
     };
 
     fetchMyPosts();
-  }, [currentUser.id]);
+  }, [currentUser.id, myPosts]);
 
   return (
     <div className="MyPosts">
@@ -25,6 +26,7 @@ export const MyPosts = ({ currentUser }) => {
           <p>Author: {post.user.fullName}</p>
           <p>Likes: {post.likes}</p>
           <p>Created: {new Date(post.date).toLocaleString()}</p>
+          <DeleteButton currentPost={post} />
         </div>
       ))}
     </div>
