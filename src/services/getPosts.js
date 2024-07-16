@@ -32,3 +32,17 @@ export const addPost = async (post) => {
     body: JSON.stringify(post),
   }).then((res) => res.json());
 };
+
+// need a DELETE service to delete a post
+export const deletePost = async (id) => {
+  return await fetch(`http://localhost:8088/posts/${id}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
+
+// need a getPostByUserId service to get all posts by a user
+export const getPostByUserId = async (userId) => {
+  return await fetch(
+    `http://localhost:8088/posts?userId=${userId}&_expand=user&_expand=topic`
+  ).then((res) => res.json());
+};

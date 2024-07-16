@@ -4,6 +4,7 @@ import { AllPostsList } from "../components/AllPosts/AllPostsList";
 import { NavBar } from "../components/NavBar/NavBar";
 import { PostDetails } from "../components/PostDetails/PostDetails";
 import { NewPost } from "../components/NewPost/NewPost";
+import { MyPosts } from "../components/MyPosts/MyPosts";
 
 export const ApplicationViews = () => {
   // manage the current user
@@ -34,6 +35,10 @@ export const ApplicationViews = () => {
         <Route
           path="/new-post"
           element={<NewPost currentUser={currentUser} />}
+        />
+        <Route
+          path="/my-posts"
+          element={<MyPosts currentUser={currentUser} />}
         />
       </Route>
     </Routes>

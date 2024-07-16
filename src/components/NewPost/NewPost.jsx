@@ -26,6 +26,7 @@ export const NewPost = ({ currentUser }) => {
       topicId: parseInt(selectedTopic),
       userId: currentUser.id,
       likes: 0,
+      date: new Date(),
     };
 
     // this will need to be updated to send the data to the API
