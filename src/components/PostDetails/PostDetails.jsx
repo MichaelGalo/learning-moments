@@ -23,7 +23,10 @@ export const PostDetails = ({ currentUser }) => {
       <h2 className="post-title">{currentPost.title}</h2>
       <div className="post-meta">
         <span className="author">
-          By: {currentPost.user ? currentPost.user.name : "Loading author..."}
+          By:{" "}
+          {currentPost.user
+            ? currentPost.user.name || currentPost.user.fullName
+            : "Loading author..."}
         </span>
         <span className="date">Published: {currentPost.date}</span>
         <span className="topic">
@@ -46,8 +49,8 @@ export const PostDetails = ({ currentUser }) => {
       )}
       <div className="edit-btn">
         {currentUser.id === currentPost.userId ? (
-          <div className="like-btn">
-            <EditButton currentPost={currentPost} />
+          <div className="edit-btn">
+            <EditButton currentUser={currentUser} currentPost={currentPost} />
           </div>
         ) : (
           ""

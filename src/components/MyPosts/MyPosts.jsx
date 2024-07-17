@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./MyPosts.css";
 import { getPostByUserId } from "../../services/getPosts";
 import { DeleteButton } from "../Buttons/DeleteButton";
+import { EditButton } from "../Buttons/EditButton";
 
 export const MyPosts = ({ currentUser }) => {
   const [myPosts, setMyPosts] = useState([]);
@@ -22,11 +23,12 @@ export const MyPosts = ({ currentUser }) => {
         <div key={post.id} className="post">
           <h3>{post.title}</h3>
           <p>{post.body}</p>
-          <p>Topic: {post.topic.name}</p>
+          <p>Topic: {post.topic?.name}</p>
           <p>Author: {post.user.fullName}</p>
           <p>Likes: {post.likes}</p>
           <p>Created: {new Date(post.date).toLocaleString()}</p>
           <DeleteButton currentPost={post} />
+          <EditButton currentUser={currentUser} currentPost={post} />
         </div>
       ))}
     </div>

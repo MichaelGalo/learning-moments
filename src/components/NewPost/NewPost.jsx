@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const NewPost = ({ currentUser }) => {
   const [topics, setTopics] = useState([]);
-  const [selectedTopic, setSelectedTopic] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState(0);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const NewPost = ({ currentUser }) => {
       topicId: parseInt(selectedTopic),
       userId: currentUser.id,
       likes: 0,
-      date: new Date(),
+      date: new Date().toLocaleDateString(),
     };
 
     // this will need to be updated to send the data to the API

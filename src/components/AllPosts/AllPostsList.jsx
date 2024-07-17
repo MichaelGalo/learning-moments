@@ -5,7 +5,7 @@ import "./AllPosts.css";
 import { getAllTopics } from "../../services/getTopics";
 import { FilterBar } from "../FilterBar.jsx/FilterBar";
 
-export const AllPostsList = () => {
+export const AllPostsList = ({ currentUser }) => {
   const [posts, setPosts] = useState([]);
   const [topics, setTopics] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -69,6 +69,7 @@ export const AllPostsList = () => {
           posts={filteredPosts}
           topics={topics}
           getTopicName={getTopicName}
+          currentUser={currentUser}
         />
       </div>
     </>

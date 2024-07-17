@@ -1,7 +1,8 @@
 // this module should export a react component that returns the individual posts for all posts
 import { Link } from "react-router-dom"; // Step 1
+import { EditButton } from "../Buttons/EditButton";
 
-export const AllPosts = ({ posts, topics, getTopicName }) => {
+export const AllPosts = ({ posts, topics, getTopicName, currentUser }) => {
   return (
     <>
       <ul>
