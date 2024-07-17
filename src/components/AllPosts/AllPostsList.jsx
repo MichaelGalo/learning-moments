@@ -32,7 +32,7 @@ export const AllPostsList = ({ currentUser }) => {
     if (filteredTopic === 0) {
       setFilteredPosts(posts);
     } else {
-      const filtered = posts.filter((post) => post.topic_id === filteredTopic);
+      const filtered = posts.filter((post) => post.topicId === filteredTopic);
       setFilteredPosts(filtered);
     }
   }, [filteredTopic, posts]);

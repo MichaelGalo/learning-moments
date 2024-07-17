@@ -1,0 +1,36 @@
+.MyFavorites {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.MyFavorites h2 {
+  color: #333;
+  text-align: center;
+}
+
+.post {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.post h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.post p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.post p:nth-last-child(1) {
+  text-align: right;
+  color: #666;
+}

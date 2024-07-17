@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./LikeButton.css";
-import { updatePost } from "../../services/getPosts";
+import { addFavorite, updatePost } from "../../services/getPosts";
+import { useNavigate } from "react-router-dom";
 
-export const LikeButton = ({ currentPost }) => {
+export const LikeButton = ({ currentPost, currentUser }) => {
   const [likes, setLikes] = useState(currentPost.likes);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLikes(currentPost.likes);
@@ -13,7 +15,10 @@ export const LikeButton = ({ currentPost }) => {
     currentPost.likes++;
     updatePost(currentPost);
 
-    // TODO: Later this needs to navigate to the favorites page
+    navigate("/favorites");
+
+    // this needs to create a new POST in the user_likes table based on userId and postId
+    addFavorite({ userId: currentUser.id, postId: currentPost.id });
   };
 
   return (

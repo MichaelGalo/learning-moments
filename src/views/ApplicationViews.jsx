@@ -6,6 +6,7 @@ import { PostDetails } from "../components/PostDetails/PostDetails";
 import { NewPost } from "../components/NewPost/NewPost";
 import { MyPosts } from "../components/MyPosts/MyPosts";
 import { EditPost } from "../components/EditPost/EditPost";
+import { Favorites } from "../components/Favorites/Favorites";
 
 export const ApplicationViews = () => {
   // manage the current user
@@ -48,6 +49,10 @@ export const ApplicationViews = () => {
         <Route
           path="/edit-post/:postId"
           element={<EditPost currentUser={currentUser} />}
+        />
+        <Route
+          path="/favorites"
+          element={<Favorites currentUser={currentUser} />}
         />
       </Route>
     </Routes>

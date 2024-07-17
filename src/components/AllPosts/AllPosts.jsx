@@ -14,7 +14,7 @@ export const AllPosts = ({ posts, topics, getTopicName, currentUser }) => {
             </h3>
             <p>
               <span style={{ fontWeight: "bold" }}>Topic:</span>{" "}
-              {getTopicName(post.topic_id)}
+              {getTopicName(post.topicId)}
             </p>
             <p>
               <span style={{ fontWeight: "bold" }}>Likes:</span> {post.likes}

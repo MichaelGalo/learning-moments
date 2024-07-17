@@ -46,3 +46,28 @@ export const getPostByUserId = async (userId) => {
     `http://localhost:8088/posts?userId=${userId}&_expand=user&_expand=topic`
   ).then((res) => res.json());
 };
+
+// fetch call for user_likes by userId with the postId expanded
+export const getFavoritesByUserId = async (userId) => {
+  return await fetch(
+    `http://localhost:8088/user_likes?userId=${userId}&_expand=post`
+  ).then((res) => res.json());
+};
+
+// create a new POST in the user_likes table based on userId and postId
+export const addFavorite = async (favorite) => {
+  return await fetch(`http://localhost:8088/user_likes`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(favorite),
+  }).then((res) => res.json());
+};
+
+// delete a favorite based on the id
+export const deleteFavorite = async (id) => {
+  return await fetch(`http://localhost:8088/user_likes/${id}?&_expand=post`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
