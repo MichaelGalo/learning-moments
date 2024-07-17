@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
 import { getPostById } from "../../services/getPosts";
@@ -24,9 +24,11 @@ export const PostDetails = ({ currentUser }) => {
       <div className="post-meta">
         <span className="author">
           By:{" "}
-          {currentPost.user
-            ? currentPost.user.name || currentPost.user.fullName
-            : "Loading author..."}
+          <Link to={`/profile/${currentPost.user?.id}`}>
+            {currentPost.user
+              ? currentPost.user.name || currentPost.user.fullName
+              : "Loading author..."}
+          </Link>
         </span>
         <span className="date">Published: {currentPost.date}</span>
         <span className="topic">

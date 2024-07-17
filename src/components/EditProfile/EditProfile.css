@@ -1,0 +1,36 @@
+/* PostDetails.css */
+.post-details {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.post-title {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.post-content {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #999;
+}
+
+.author,
+.date,
+.likes,
+.topic {
+  display: inline-block;
+  margin-right: 15px;
+}
